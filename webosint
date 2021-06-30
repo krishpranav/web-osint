@@ -25,3 +25,11 @@ rescue LoadError
   puts "`$ bundle install`\n\n"
   exit 1
 end
+
+$logger = Logger.new(STDOUT)
+
+if $DEBUG
+  $logger.level = Logger::DEBUG
+else
+  $logger.level = Logger::FATAL
+end
